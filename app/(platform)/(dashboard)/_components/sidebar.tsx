@@ -47,7 +47,19 @@ const Sidebar = ({ storageKey = "n-sidebar-state" }: SidebarProps) => {
   };
 
   if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
-    return <Skeleton />;
+    return (
+      <>
+        <div className="flex items-center m-2 justify-between">
+          <Skeleton className="h-10 w-[50%]" />
+          <Skeleton className="w-10 h-10" />
+        </div>
+        <div className="space-y-2 m-2">
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+        </div>
+      </>
+    );
   }
 
   return (
